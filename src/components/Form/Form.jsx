@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Notiflix from 'notiflix';
 import style from './Form.module.css';
 import PropTypes from 'prop-types';
 
 const Form = ({ setSearchParams }) => {
-  const [query, setquery] = useState('');
+  const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    const storedQuery = localStorage.getItem('storedQuery');
+    if (storedQuery) {
+      setQuery(storedQuery);
+    }
+  }, []);
 
   const handleInput = e => {
-    setquery(e.target.value);
+    const inputValue = e.target.value;
+    setQuery(inputValue);
+    localStorage.setItem('storedQuery', inputValue);
   };
 
   const handleSubmit = e => {
@@ -16,7 +25,6 @@ const Form = ({ setSearchParams }) => {
       Notiflix.Notify.info('Please enter your request');
     } else {
       setSearchParams({ query });
-      setquery('');
     }
   };
   return (
