@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import style from './Movie.module.css';
 import { StyledNavLink } from './Movie.styled';
+import PropTypes from 'prop-types';
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 const PLACEHOLDER = 'https://via.placeholder.com/182x273';
@@ -62,6 +63,14 @@ const Movie = ({ img, title, genres, overview, rating }) => {
       <Outlet />
     </>
   );
+};
+
+Movie.propTypes = {
+  img: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string),
+  overview: PropTypes.string,
+  rating: PropTypes.number,
 };
 
 export default Movie;

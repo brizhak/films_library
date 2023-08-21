@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Notiflix from 'notiflix';
 import style from './Form.module.css';
+import PropTypes from 'prop-types';
 
 const Form = ({ setSearchParams }) => {
   const [query, setquery] = useState('');
@@ -34,6 +35,10 @@ const Form = ({ setSearchParams }) => {
       </button>
     </form>
   );
+};
+
+Form.propTypes = {
+  setSearchParams: PropTypes.func.isRequired,
 };
 
 export default Form;
