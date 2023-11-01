@@ -28,6 +28,13 @@
 
 .input {
     font-size: inherit;
+    border-width: 0;
+    padding-inline: 0;
+    padding-block: 0;
+}
+.input::placeholder {
+  text-align: left;
+  padding-left: 10px;
 }
 
 .btn {
