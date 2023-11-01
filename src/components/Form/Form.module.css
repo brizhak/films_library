@@ -1,7 +1,7 @@
 
 @media screen and (max-width: 460px) {
   .input {
-    width: 250px;
+    width: 100%;
     height: 40px;
   }
   .form {
@@ -9,11 +9,11 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-}
-.btn {
-width: 80px;
-height: 40px;
-}
+  }
+  .btn {
+    width: 100%;
+    height: 40px;
+  }
 }
 @media screen and (min-width: 461px) {
   .input {
@@ -23,9 +23,8 @@ height: 40px;
     display: flex;
     gap: 10px;
     height: 40px;
+  }
 }
-}
-
 
 .input {
     font-size: inherit;
@@ -40,6 +39,6 @@ height: 40px;
     transition: all 0.3s;
 }
 
-.btn:hover {
+.btn:hover, .btn:active {
     background-color: #F34C3F;
 }
