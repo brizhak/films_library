@@ -1,6 +1,5 @@
-import { StyledNavLink } from './App.styled';
+import { StyledNavLink, Line, StyledNav, Container } from './App.styled';
 import { Route, Routes } from 'react-router-dom';
-import style from './App.module.css';
 import { lazy, Suspense } from 'react';
 import Loader from './Loader';
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
@@ -12,13 +11,13 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   return (
-    <div className={style.container}>
+    <Container>
       <header>
-        <nav>
+        <StyledNav>
           <StyledNavLink to="/">Home</StyledNavLink>
           <StyledNavLink to="/movies">Movies</StyledNavLink>
-        </nav>
-        <div className={style.line}></div>
+        </StyledNav>
+        <Line></Line>
       </header>
       <main>
         <Suspense fallback={<Loader />}>
@@ -33,6 +32,6 @@ export const App = () => {
           </Routes>
         </Suspense>
       </main>
-    </div>
+    </Container>
   );
 };

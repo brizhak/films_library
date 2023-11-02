@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTrends } from '../../services/api';
-import style from './HomePage.module.css';
 import Loader from '../../components/Loader';
+import { Container, TrendsList, Title } from './HomePage.styled';
 
 import TrendMovies from 'components/TrendMovies';
 
@@ -27,8 +27,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={style.container}>
-      <h1>Trending today</h1>
+    <Container>
+      <Title>Trending today</Title>
       {loading ? (
         <Loader />
       ) : (
@@ -36,21 +36,31 @@ const HomePage = () => {
           {error !== null ? (
             <p>Something went wrong. Error: {error}</p>
           ) : (
-            <ul className={style.trendsList}>
+            <TrendsList>
               {trends.map(movie => {
-                return (
-                  <TrendMovies
-                    key={movie.id}
-                    id={movie.id}
-                    title={movie.title}
-                  />
-                );
+                if (movie.title) {
+                  return (
+                    <TrendMovies
+                      key={movie.id}
+                      id={movie.id}
+                      title={movie.title}
+                    />
+                  );
+                } else {
+                  return (
+                    <TrendMovies
+                      key={movie.id}
+                      id={movie.id}
+                      title="Movie title is missing"
+                    />
+                  );
+                }
               })}
-            </ul>
+            </TrendsList>
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

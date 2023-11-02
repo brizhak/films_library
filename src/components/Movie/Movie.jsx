@@ -1,6 +1,18 @@
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import style from './Movie.module.css';
-import { StyledNavLink } from './Movie.styled';
+import { Outlet, useLocation } from 'react-router-dom';
+import {
+  StyledNavLink,
+  Container,
+  LinkContainer,
+  BackLink,
+  GeneralContainer,
+  Img,
+  Title,
+  Rating,
+  Genres,
+  ListGenres,
+  Overview,
+  InfoList,
+} from './Movie.styled';
 import PropTypes from 'prop-types';
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -11,42 +23,40 @@ const Movie = ({ img, title, genres, overview, rating }) => {
   const backLinkHref = location.state?.from ?? '/movies';
   return (
     <>
-      <div className={style.container}>
-        <div className={style.linkContainer}>
-          <Link className={style.back} to={backLinkHref}>
-            Go back
-          </Link>
-        </div>
-        <div className={style.generalContainer}>
-          <img
+      <Container>
+        <LinkContainer>
+          <BackLink to={backLinkHref}>Go back</BackLink>
+        </LinkContainer>
+        <GeneralContainer>
+          <Img
             src={`${
               img ? BASE_POSTER_URL + img : PLACEHOLDER + '?text=' + title
             }`}
             alt={title}
-            width="150"
+            width="250"
           />
-          <div className={style.descriptionContainer}>
-            <h3>{title}</h3>
-            <p className={style.rating}>Rating: {Math.round(rating)}</p>
+          <div>
+            <Title>{title}</Title>
+            <Rating>Rating: {Math.round(rating)}</Rating>
             {genres && genres.length > 0 ? (
               <div>
-                <h4 className={style.genres}>Genres</h4>
-                <ul className={style.listGenres}>
+                <Genres>Genres</Genres>
+                <ListGenres>
                   {genres.map((genre, index) => (
                     <li key={index}>{genre}</li>
                   ))}
-                </ul>
+                </ListGenres>
               </div>
             ) : (
               <p>No genres available</p>
             )}
-            <h4 className={style.overview}>Overview</h4>
+            <Overview>Overview</Overview>
             <p>{overview}</p>
           </div>
-        </div>
+        </GeneralContainer>
         <div>
           <h2>Additional information</h2>
-          <ul className={style.infoList}>
+          <InfoList>
             <li>
               <StyledNavLink to="cast" state={location.state}>
                 Cast
@@ -57,9 +67,9 @@ const Movie = ({ img, title, genres, overview, rating }) => {
                 Reviews
               </StyledNavLink>
             </li>
-          </ul>
+          </InfoList>
         </div>
-      </div>
+      </Container>
       <Outlet />
     </>
   );
