@@ -28,7 +28,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Title>Trending today</Title>
+      <Title>TRENDING TODAY</Title>
       {loading ? (
         <Loader />
       ) : (

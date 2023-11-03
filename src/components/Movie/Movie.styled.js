@@ -2,22 +2,20 @@ import styled from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
 
 export const StyledNavLink = styled(NavLink)`
-  padding: 5px;
+  padding: 5px 10px;
   transition: all 0.3s;
+  border-radius: 25px;
 
   &.active {
     background-color: #97010e;
-    font-size: 25px;
   }
 `;
 
 export const Container = styled.div`
-  @media (max-width: 460px) {
-    margin: 20px auto 20px auto;
+  @media (max-width: 768px) {
+    margin: 20px;
   }
-  @media (min-width: 461px) {
-    margin: 40px;
-  }
+  margin: 30px;
 `;
 
 export const LinkContainer = styled.div`
@@ -25,12 +23,8 @@ export const LinkContainer = styled.div`
 `;
 
 export const BackLink = styled(Link)`
-  padding: 5px;
-  background-color: #97010e;
-  transition: all 0.3s;
-
   &.hover {
-    background-color: #f34c3f;
+    color: #f34c3f;
   }
 `;
 
@@ -39,13 +33,13 @@ export const GeneralContainer = styled.div`
   justify-content: center;
   gap: 30px;
   margin-bottom: 30px;
-  @media (max-width: 460px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     gap: 30px;
     margin-bottom: 30px;
   }
-  @media (min-width: 461px) {
+  @media (min-width: 769px) {
     flex-direction: row;
   }
 `;
@@ -59,9 +53,28 @@ export const Img = styled.img`
 export const Title = styled.h3`
   font-size: 25px;
   padding-bottom: 20px;
+  text-align: center;
 `;
 
+export const Description = styled.p`
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  font-size: 20px;
+`;
 export const Rating = styled.p`
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  font-size: 20px;
+  margin-bottom: 10px;
+`;
+
+export const ItemGenre = styled.li`
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  font-size: 20px;
   margin-bottom: 10px;
 `;
 
@@ -71,8 +84,7 @@ export const Genres = styled.h4`
 
 export const ListGenres = styled.ul`
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  column-gap: 10px;
 `;
 
 export const Overview = styled.h4`
@@ -84,4 +96,12 @@ export const InfoList = styled.ul`
   margin-top: 20px;
   display: flex;
   gap: 20px;
+`;
+
+export const AddInfo = styled.h2`
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  font-size: 25px;
 `;

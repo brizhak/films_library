@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchCast } from 'services/api';
 import Loader from 'components/Loader';
-import style from './Cast.module.css';
+import { CastList, Container, Name, ListItem } from './Cast.styled';
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 const PLACEHOLDER = 'https://via.placeholder.com/182x273';
@@ -29,7 +29,7 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <div className={style.container}>
+    <Container>
       {loading ? (
         <Loader />
       ) : (
@@ -39,9 +39,9 @@ const Cast = () => {
           ) : cast.length === 0 ? (
             <p>No results</p>
           ) : (
-            <ul className={style.list}>
+            <CastList>
               {cast.map(item => (
-                <li key={item.id}>
+                <ListItem key={item.id}>
                   <img
                     src={`${
                       item.profile_path
@@ -51,14 +51,14 @@ const Cast = () => {
                     alt={item.name}
                     width="150"
                   />
-                  <p>{item.name}</p>
-                </li>
+                  <Name>{item.name}</Name>
+                </ListItem>
               ))}
-            </ul>
+            </CastList>
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const StyledNavLink = styled(NavLink)`
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     font-size: 25px;
   }
 
@@ -21,11 +21,15 @@ export const Container = styled.div`
 `;
 
 export const StyledNav = styled.nav`
+  @media (max-width: 768px) {
+    margin: 0 20px;
+    height: 60px;
+  }
   display: flex;
   align-items: center;
   gap: 20px;
   height: 80px;
-  margin: 0 20px;
+  margin: 0 30px;
 `;
 
 export const Line = styled.div`

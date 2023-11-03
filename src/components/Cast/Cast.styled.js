@@ -7,22 +7,26 @@ export const Container = styled.div`
   margin: 30px;
 `;
 
-export const TrendsList = styled.ul`
+export const CastList = styled.ul`
   @media (max-width: 768px) {
-    gap: 10px;
+    margin-top: 20px;
+    gap: 30px;
   }
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 40px;
 `;
 
-export const Title = styled.h4`
+export const Name = styled.p`
   @media (max-width: 768px) {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 18px;
   }
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
-  margin-bottom: 30px;
+`;
+
+export const ListItem = styled.li`
+  width: 150px;
 `;

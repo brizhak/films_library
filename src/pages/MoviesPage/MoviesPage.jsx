@@ -4,7 +4,7 @@ import Form from '../../components/Form';
 import { fetchMovies } from 'services/api';
 import Loader from 'components/Loader';
 import MoviesList from '../../components/MoviesList';
-import style from './MoviesPage.module.css';
+import { Container } from './MoviesPage.styled';
 
 const MoviesPage = () => {
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const MoviesPage = () => {
   }, [searchParams]);
 
   return (
-    <div className={style.container}>
+    <Container>
       <Form setSearchParams={setSearchParams} />
 
       {loading ? (
@@ -46,7 +46,7 @@ const MoviesPage = () => {
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

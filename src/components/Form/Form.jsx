@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Notiflix from 'notiflix';
-import style from './Form.module.css';
+import { SearchForm, Input, Button } from './Form.styled';
 import PropTypes from 'prop-types';
 
 const Form = ({ setSearchParams }) => {
@@ -28,9 +28,8 @@ const Form = ({ setSearchParams }) => {
     }
   };
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
-      <input
-        className={style.input}
+    <SearchForm onSubmit={handleSubmit}>
+      <Input
         type="text"
         placeholder="Enter the movie title"
         value={query}
@@ -38,10 +37,8 @@ const Form = ({ setSearchParams }) => {
         autoComplete="off"
         autoFocus
       />
-      <button className={style.btn} type="submit">
-        Search
-      </button>
-    </form>
+      <Button type="submit">Search</Button>
+    </SearchForm>
   );
 };
 

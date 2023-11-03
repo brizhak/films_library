@@ -1,14 +1,14 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { TrendMovie } from './TrendMovies.styled';
+import { TrendMovie, StyledLink } from './TrendMovies.styled';
 
 const TrendMovies = ({ id, title }) => {
   const location = useLocation();
   return (
     <TrendMovie id={id}>
-      <Link state={{ from: location }} to={`/movies/${id}`}>
+      <StyledLink state={{ from: location }} to={`/movies/${id}`}>
         {title}
-      </Link>
+      </StyledLink>
     </TrendMovie>
   );
 };

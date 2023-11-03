@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchReviews } from 'services/api';
 import Loader from 'components/Loader/Loader';
-import style from './Reviews.module.css';
+import { List, ListItem, Container } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -26,7 +26,7 @@ const Reviews = () => {
     fetchReviewsList();
   }, [movieId]);
   return (
-    <div className={style.container}>
+    <Container>
       {loading ? (
         <Loader />
       ) : (
@@ -36,21 +36,21 @@ const Reviews = () => {
           ) : reviews.length === 0 ? (
             <p>No results</p>
           ) : (
-            <ul className={style.list}>
+            <List>
               {reviews.length !== 0 &&
                 reviews.map(item => {
                   return (
-                    <li className={style.listItem} key={item.id}>
+                    <ListItem>
                       <p>Author: {item.author}</p>
                       <p>{item.content}</p>
-                    </li>
+                    </ListItem>
                   );
                 })}
-            </ul>
+            </List>
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

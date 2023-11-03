@@ -7,11 +7,14 @@ import {
   GeneralContainer,
   Img,
   Title,
-  Rating,
   Genres,
   ListGenres,
   Overview,
   InfoList,
+  AddInfo,
+  Description,
+  Rating,
+  ItemGenre,
 } from './Movie.styled';
 import PropTypes from 'prop-types';
 
@@ -43,7 +46,7 @@ const Movie = ({ img, title, genres, overview, rating }) => {
                 <Genres>Genres</Genres>
                 <ListGenres>
                   {genres.map((genre, index) => (
-                    <li key={index}>{genre}</li>
+                    <ItemGenre key={index}>{genre}</ItemGenre>
                   ))}
                 </ListGenres>
               </div>
@@ -51,11 +54,11 @@ const Movie = ({ img, title, genres, overview, rating }) => {
               <p>No genres available</p>
             )}
             <Overview>Overview</Overview>
-            <p>{overview}</p>
+            <Description>{overview}</Description>
           </div>
         </GeneralContainer>
         <div>
-          <h2>Additional information</h2>
+          <AddInfo>ADDITIONAL INFORMATION</AddInfo>
           <InfoList>
             <li>
               <StyledNavLink to="cast" state={location.state}>
